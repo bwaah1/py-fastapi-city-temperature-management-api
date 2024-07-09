@@ -1,4 +1,5 @@
 import logging
+import os
 from datetime import datetime
 from typing import List
 
@@ -12,7 +13,7 @@ from dependencies import get_db
 
 router = APIRouter()
 
-API_KEY = "844066ec80254d2bada71850240207"
+API_KEY = os.environ.get("WEATHER_API_KEY")
 
 
 @router.post("/update", response_model=List[Temperature])
@@ -25,8 +26,8 @@ async def update_temperatures(
         for city in cities:
             url = "http://api.openweathermap.org/data/2.5/weather"
             params = {
-                'q': city.name,
-                'appid': API_KEY
+                "q": city.name,
+                "appid": API_KEY
             }
             async with session.get(url, params=params) as response:
                 if response.status != 200:
