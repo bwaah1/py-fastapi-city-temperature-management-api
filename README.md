@@ -22,6 +22,9 @@ This project is a Weather API service that allows users to manage cities and rec
     python3 -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
+To run this project, you need to set up the environment variables. Create a .env file in the root directory of your project. 
+
+A sample .env.sample file is provided to help you get started.
 
 3. **Install Dependencies**:
     ```bash
